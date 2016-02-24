@@ -10,10 +10,16 @@
 <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-dynamic-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" id="menu-action"><i class="fa fa-bars fa-fw"></i> MENU</a>
+            </div>
+
+            <div class="sidebar sidebar-nav navbar-collapse" role="navigation" id="sidebar-wrapper">
                 <ul class="nav" id="side-menu">
-                    <li class="fa fa-dashboard fa-fw"><%= link_to "Home", root_path %>                       
+                    <li>
+                    <%= link_to root_path do %>
+                     <i class="fa fa-home fa-fw"></i> Home
+                    <% end %>
                     </li>
                     <li>
                         <a href="#"><i class="fa  fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -102,7 +108,7 @@
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
-        </div>
+
         <!-- /.navbar-static-side -->
     </nav>
 
@@ -118,6 +124,13 @@
     </div>
    <!-- /#wrapper -->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <script>
+    $("#menu-action").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
     <!-- jQuery -->
     <!--<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
